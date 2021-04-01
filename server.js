@@ -53,6 +53,14 @@ app.post("/login", (req, res) => {
   }
 });
 
+// Error response and status for a unexisting route
+app.get("*", (req, res) => {
+  res.status(404).json({
+    success: true,
+    message: "404 Page",
+  });
+});
+
 app.listen(8000, () => {
   console.log("Server is running");
 });
